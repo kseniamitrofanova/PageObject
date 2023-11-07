@@ -3,15 +3,13 @@ package pages;
 import com.codeborne.selenide.SelenideElement;
 import pages.components.CalendarComponent;
 
-import java.util.HashMap;
-
 
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.Selenide.executeJavaScript;
 
-public class StudentRegistrationForm {
+public class StudentRegistrationPage {
     private SelenideElement firstNameInput =$("#firstName"),
             lastNameInput =$("#lastName"),
             userEmailInput =$("#userEmail"),
@@ -33,83 +31,83 @@ public class StudentRegistrationForm {
     CalendarComponent calendarComponent = new CalendarComponent();
 
 
-    public StudentRegistrationForm openPage(){
+    public StudentRegistrationPage openPage(){
         open("/automation-practice-form");
         executeJavaScript("$('#fixedban').remove()");
         executeJavaScript("$('footer').remove");
         return this;
     }
-    public StudentRegistrationForm setFirstName(String value) {
+    public StudentRegistrationPage setFirstName(String value) {
         firstNameInput.setValue(value);
         return this;
     }
-    public StudentRegistrationForm setLastName(String value)
+    public StudentRegistrationPage setLastName(String value)
     {
         lastNameInput.setValue(value);
         return this;
 
     }
-    public StudentRegistrationForm setUserEmail(String value){
+    public StudentRegistrationPage setUserEmail(String value){
         userEmailInput.setValue(value);
         return this;
     }
 
-    public StudentRegistrationForm setUserNumber(String value){
+    public StudentRegistrationPage setUserNumber(String value){
         userNumberInput.setValue(value);
         return this;
     }
-    public StudentRegistrationForm setGenter(String value){
+    public StudentRegistrationPage setGenter(String value){
         genterWrapperInput.$(byText(value)).click();
         return this;
     }
-    public StudentRegistrationForm setDateOfBirth(String day, String month, String year){
+    public StudentRegistrationPage setDateOfBirth(String day, String month, String year){
         calendarInput.click();
         calendarComponent.setDate(day, month, year);
         return this;
     }
 
-    public  StudentRegistrationForm checkResult (String key, String value){
+    public StudentRegistrationPage checkResult (String key, String value){
         $(".table-responsive").$(byText(key)).parent()
                 .shouldHave(text(value));
         return this;
     }
 
-    public  StudentRegistrationForm clickEnter (){
+    public StudentRegistrationPage clickEnter (){
         buttonSubmit.click();
         return this;
     }
 
-    public StudentRegistrationForm setHobbies(String value){
+    public StudentRegistrationPage setHobbies(String value){
         hobbiesWrapperInput.$(byText(value)).click();
         return this;
     }
 
-    public StudentRegistrationForm setSubjectsInput(String value) {
+    public StudentRegistrationPage setSubjectsInput(String value) {
         subjectsInput.val(value).pressEnter();
         return this;
     }
 
-    public StudentRegistrationForm setPicture() {
+    public StudentRegistrationPage setPicture() {
         loadPicture.uploadFromClasspath("QA.jpeg");
         return this;
     }
 
-    public StudentRegistrationForm setCurrentAddress(String value) {
+    public StudentRegistrationPage setCurrentAddress(String value) {
         CurrentAddressInput.setValue(value);
         return this;
     }
 
-    public StudentRegistrationForm setReact3(String value) {
+    public StudentRegistrationPage setReact3(String value) {
         setreact3.val(value).pressEnter();
         return this;
     }
 
-    public StudentRegistrationForm setReact4(String value) {
+    public StudentRegistrationPage setReact4(String value) {
         setreact4.val(value).pressEnter();
         return this;
     }
 
-    public StudentRegistrationForm checkResult() {
+    public StudentRegistrationPage checkResult() {
         $("#userForm.was-validated").shouldBe(visible);
         return this;
     }
