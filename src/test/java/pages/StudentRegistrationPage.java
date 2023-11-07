@@ -14,7 +14,7 @@ public class StudentRegistrationPage {
             lastNameInput =$("#lastName"),
             userEmailInput =$("#userEmail"),
             userNumberInput =$("#userNumber"),
-            genterWrapperInput = $("#genterWrapper"),
+            genderWrapperInput = $("#genderWrapper"),
             calendarInput = $("#dateOfBirthInput"),
             buttonSubmit= $("#submit"),
             hobbiesWrapperInput = $("#hobbiesWrapper"),
@@ -57,7 +57,7 @@ public class StudentRegistrationPage {
         return this;
     }
     public StudentRegistrationPage setGenter(String value){
-        genterWrapperInput.$(byText(value)).click();
+        genderWrapperInput.$(byText(value)).click();
         return this;
     }
     public StudentRegistrationPage setDateOfBirth(String day, String month, String year){
