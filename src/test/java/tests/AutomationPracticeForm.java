@@ -65,8 +65,8 @@ public class AutomationPracticeForm extends TestBase{
     void negativeScenario()
     {
         studentRegistrationForm.openPage()
-                .clickEnter();
+                .clickEnter()
+                .checkResult();
 
-        $("firstName").shouldHave(cssClass("error"));
     }
 }

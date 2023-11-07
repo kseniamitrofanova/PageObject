@@ -2,10 +2,11 @@ package pages;
 
 import com.codeborne.selenide.SelenideElement;
 import pages.components.CalendarComponent;
-import static com.codeborne.selenide.Condition.text;
+
+import java.util.HashMap;
 
 
-
+import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.Selenide.executeJavaScript;
@@ -105,6 +106,11 @@ public class StudentRegistrationForm {
 
     public StudentRegistrationForm setReact4(String value) {
         setreact4.val(value).pressEnter();
+        return this;
+    }
+
+    public StudentRegistrationForm checkResult() {
+        $("#userForm.was-validated").shouldBe(visible);
         return this;
     }
 
