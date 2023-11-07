@@ -14,7 +14,7 @@ public class AutomationPracticeForm extends TestBase{
                 .setLastName("Mitrofanova")
                 .setUserEmail("KMitrofanova@mail.ru")
                 .setUserNumber("8999123456")
-                .setGenter("Female")
+                .setGender("Female")
                 .setDateOfBirth("30", "July", "2008")
                 .setHobbies("Sports")
                 .setHobbies("Reading")
@@ -22,8 +22,8 @@ public class AutomationPracticeForm extends TestBase{
                 .setSubjectsInput("Computer Science")
                 .setPicture()
                 .setCurrentAddress("Penza, Central street 132")
-                .setReact3("NCR")
-                .setReact4("Noida")
+                .setState("NCR")
+                .setCity("Noida")
                 .clickEnter();
 
 
@@ -45,7 +45,7 @@ public class AutomationPracticeForm extends TestBase{
         studentRegistrationPage.openPage()
                 .setFirstName("Ksenia")
                 .setLastName("Mitrofanova")
-                .setGenter("Female")
+                .setGender("Female")
                 .setUserNumber("8999123456")
                 .clickEnter();
 

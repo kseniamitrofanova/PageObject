@@ -7,22 +7,23 @@ import pages.components.CalendarComponent;
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
-import static com.codeborne.selenide.Selenide.executeJavaScript;
 
 public class StudentRegistrationPage {
     private SelenideElement firstNameInput =$("#firstName"),
             lastNameInput =$("#lastName"),
             userEmailInput =$("#userEmail"),
             userNumberInput =$("#userNumber"),
-            genderWrapperInput = $("#genderWrapper"),
+            genderWrapperInput = $("#genterWrapper"),
             calendarInput = $("#dateOfBirthInput"),
             buttonSubmit= $("#submit"),
             hobbiesWrapperInput = $("#hobbiesWrapper"),
             subjectsInput= $("#subjectsInput"),
             loadPicture=$("#uploadPicture"),
-            CurrentAddressInput=$("#currentAddress"),
-            setreact3=$("#react-select-3-input"),
-            setreact4=$("#react-select-4-input");
+            currentAddressInput =$("#currentAddress"),
+            setReact3 =$("#react-select-3-input"),
+            setReact4 =$("#react-select-4-input"),
+            userForm=$("#userForm.was-validated"),
+            tableResponsive=$(".table-responsive");
 
 
 
@@ -30,11 +31,16 @@ public class StudentRegistrationPage {
 
     CalendarComponent calendarComponent = new CalendarComponent();
 
+    public StudentRegistrationPage removePage() {
+        executeJavaScript("$('#fixedban').remove()");
+        executeJavaScript("$('footer').remove");
+        return this;
+    }
+
 
     public StudentRegistrationPage openPage(){
         open("/automation-practice-form");
-        executeJavaScript("$('#fixedban').remove()");
-        executeJavaScript("$('footer').remove");
+        removePage();
         return this;
     }
     public StudentRegistrationPage setFirstName(String value) {
@@ -56,7 +62,7 @@ public class StudentRegistrationPage {
         userNumberInput.setValue(value);
         return this;
     }
-    public StudentRegistrationPage setGenter(String value){
+    public StudentRegistrationPage setGender(String value){
         genderWrapperInput.$(byText(value)).click();
         return this;
     }
@@ -67,7 +73,7 @@ public class StudentRegistrationPage {
     }
 
     public StudentRegistrationPage checkResult (String key, String value){
-        $(".table-responsive").$(byText(key)).parent()
+        tableResponsive.$(byText(key)).parent()
                 .shouldHave(text(value));
         return this;
     }
@@ -93,22 +99,22 @@ public class StudentRegistrationPage {
     }
 
     public StudentRegistrationPage setCurrentAddress(String value) {
-        CurrentAddressInput.setValue(value);
+        currentAddressInput.setValue(value);
         return this;
     }
 
-    public StudentRegistrationPage setReact3(String value) {
-        setreact3.val(value).pressEnter();
+    public StudentRegistrationPage setState(String value) {
+        setReact3.val(value).pressEnter();
         return this;
     }
 
-    public StudentRegistrationPage setReact4(String value) {
-        setreact4.val(value).pressEnter();
+    public StudentRegistrationPage setCity(String value) {
+        setReact4.val(value).pressEnter();
         return this;
     }
 
     public StudentRegistrationPage checkResult() {
-        $("#userForm.was-validated").shouldBe(visible);
+        userForm.shouldBe(visible);
         return this;
     }
 
