@@ -2,34 +2,24 @@ package tests;
 import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+import pages.StudentRegistrationForm;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
-public class AutomationPracticeForm {
+public class AutomationPracticeForm extends TestBase{
 
-    @BeforeAll
-    static void beforeAll(){
-        Configuration.browserSize = "1920x1080";
-        Configuration.baseUrl = "https://demoqa.com";
-        Configuration.pageLoadStrategy = "eager";
-        Configuration.holdBrowserOpen = true;
-        Configuration.timeout = 5000;
-    }
-
-
+    StudentRegistrationForm studentRegistrationForm = new StudentRegistrationForm();
 
     @Test
 
     void fillFormTest() {
-        open("/automation-practice-form");
-        executeJavaScript("$('#fixedban').remove()");
-        executeJavaScript("$('footer').remove");
-        $("#firstName").setValue("Ksenia");
-        $("#lastName").setValue("Mitrofanova");
-        $("#userEmail").setValue("KMitrofanova@mail.ru");
-        $("#userNumber").setValue("8999123456");
+        studentRegistrationForm.openPage();
+        studentRegistrationForm.setFirstName("Ksenia");
+        studentRegistrationForm.setLastName("Mitrofanova");
+        studentRegistrationForm.setUserEmail("KMitrofanova@mail.ru");
+        studentRegistrationForm.setUserNumber("8999123456");
         $("#genterWrapper").$(byText("Female")).click();
         $("#dateOfBirthInput").click();
         $(".react-datepicker__month-select").selectOption("June");
@@ -60,14 +50,11 @@ public class AutomationPracticeForm {
     @Test
     void inputMinimalData()
     {
-        open("/automation-practice-form");
-        executeJavaScript("$('#fixedban').remove()");
-        executeJavaScript("$('footer').remove");
-
-        $(firstName).setValue("Ksenia");
-        $("#lastName").setValue("Mitrofanova");
+        studentRegistrationForm.openPage();
+        studentRegistrationForm.setFirstName("Ksenia");
+        studentRegistrationForm.setLastName("Mitrofanova");
         $("#genterWrapper").$(byText("Female")).click();
-        $("#userNumber").setValue("8999123456");
+        studentRegistrationForm.setUserNumber("8999123456");
         $("#submit").pressEnter();
 
         $(".table-responsive").shouldHave(text("Ksenia Mitrofanova"));
@@ -75,9 +62,9 @@ public class AutomationPracticeForm {
         $(".table-responsive").shouldHave(text("8999123456"));
     }
 
-    @Test
+ /*   @Test
     void negativeScenario()
     {
 
-    }
+    }*/
 }
