@@ -63,7 +63,8 @@ public class AutomationPracticeForm {
         open("/automation-practice-form");
         executeJavaScript("$('#fixedban').remove()");
         executeJavaScript("$('footer').remove");
-        $("#firstName").setValue("Ksenia");
+
+        $(firstName).setValue("Ksenia");
         $("#lastName").setValue("Mitrofanova");
         $("#genterWrapper").$(byText("Female")).click();
         $("#userNumber").setValue("8999123456");
@@ -74,5 +75,9 @@ public class AutomationPracticeForm {
         $(".table-responsive").shouldHave(text("8999123456"));
     }
 
+    @Test
+    void negativeScenario()
+    {
 
+    }
 }
