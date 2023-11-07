@@ -15,16 +15,14 @@ public class AutomationPracticeForm extends TestBase{
     @Test
 
     void fillFormTest() {
-        studentRegistrationForm.openPage();
-        studentRegistrationForm.setFirstName("Ksenia");
-        studentRegistrationForm.setLastName("Mitrofanova");
-        studentRegistrationForm.setUserEmail("KMitrofanova@mail.ru");
-        studentRegistrationForm.setUserNumber("8999123456");
-        $("#genterWrapper").$(byText("Female")).click();
-        $("#dateOfBirthInput").click();
-        $(".react-datepicker__month-select").selectOption("June");
-        $(".react-datepicker__year-select").selectOption("1997");
-        $(".react-datepicker__day--003").click();
+        studentRegistrationForm.openPage()
+                .setFirstName("Ksenia")
+                .setLastName("Mitrofanova")
+                .setUserEmail("KMitrofanova@mail.ru")
+                .setUserNumber("8999123456")
+                .setGenter("Female")
+                .setDateOfBirth("3", "June", "1997");
+
         $("#subjectsInput").val("Computer Science").pressEnter();
         $ ("#hobbiesWrapper").$(byText("Sports")).click();
         $ ("#hobbiesWrapper").$(byText("Reading")).click();
@@ -50,11 +48,11 @@ public class AutomationPracticeForm extends TestBase{
     @Test
     void inputMinimalData()
     {
-        studentRegistrationForm.openPage();
-        studentRegistrationForm.setFirstName("Ksenia");
-        studentRegistrationForm.setLastName("Mitrofanova");
-        $("#genterWrapper").$(byText("Female")).click();
-        studentRegistrationForm.setUserNumber("8999123456");
+        studentRegistrationForm.openPage()
+                .setFirstName("Ksenia")
+                .setLastName("Mitrofanova")
+                .setGenter("Female")
+                .setUserNumber("8999123456");
         $("#submit").pressEnter();
 
         $(".table-responsive").shouldHave(text("Ksenia Mitrofanova"));
