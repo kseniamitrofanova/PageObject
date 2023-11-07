@@ -21,28 +21,28 @@ public class AutomationPracticeForm extends TestBase{
                 .setUserEmail("KMitrofanova@mail.ru")
                 .setUserNumber("8999123456")
                 .setGenter("Female")
-                .setDateOfBirth("3", "June", "1997");
+                .setDateOfBirth("30", "July", "2008")
+                .setHobbies("Sports")
+                .setHobbies("Reading")
+                .setHobbies("Music")
+                .setSubjectsInput("Computer Science")
+                .setPicture()
+                .setCurrentAddress("Penza, Central street 132")
+                .setReact3("NCR")
+                .setReact4("Noida")
+                .clickEnter();
 
-        $("#subjectsInput").val("Computer Science").pressEnter();
-        $ ("#hobbiesWrapper").$(byText("Sports")).click();
-        $ ("#hobbiesWrapper").$(byText("Reading")).click();
-        $ ("#hobbiesWrapper").$(byText("Music")).click();
-        $("#uploadPicture").uploadFromClasspath("QA.jpeg");
-        $("#currentAddress").setValue("Penza, Central street 132");
-        $("#react-select-3-input").val("NCR").pressEnter();
-        $("#react-select-4-input").val("Noida").pressEnter();
-        $("#submit").pressEnter();
 
-        $(".table-responsive").shouldHave(text("Ksenia Mitrofanova"));
-        $(".table-responsive").shouldHave(text("KMitrofanova@mail.ru"));
-        $(".table-responsive").shouldHave(text("Female"));
-        $(".table-responsive").shouldHave(text("8999123456"));
-        $(".table-responsive").shouldHave(text("3 June,1997"));
-        $(".table-responsive").shouldHave(text("Computer Science"));
-        $(".table-responsive").shouldHave(text("Sports, Reading, Music"));
-        $(".table-responsive").shouldHave(text("QA.jpeg"));
-        $(".table-responsive").shouldHave(text("Penza, Central street 132"));
-        $(".table-responsive").shouldHave(text("NCR Noida"));
+        studentRegistrationForm.checkResult("Student Name", "Ksenia Mitrofanova")
+                .checkResult("Student Email", "KMitrofanova@mail.ru")
+                .checkResult("Gender", "Female")
+                .checkResult("Mobile", "8999123456")
+                .checkResult("Date of Birth", "30 July,2008")
+                .checkResult("Subjects", "Computer Science")
+                .checkResult("Hobbies","Sports, Reading, Music")
+                .checkResult("Picture","QA.jpeg")
+                .checkResult("Address","Penza, Central street 132")
+                .checkResult("State and City","NCR Noida");
     }
 
     @Test
@@ -52,17 +52,21 @@ public class AutomationPracticeForm extends TestBase{
                 .setFirstName("Ksenia")
                 .setLastName("Mitrofanova")
                 .setGenter("Female")
-                .setUserNumber("8999123456");
-        $("#submit").pressEnter();
+                .setUserNumber("8999123456")
+                .clickEnter();
 
-        $(".table-responsive").shouldHave(text("Ksenia Mitrofanova"));
-        $(".table-responsive").shouldHave(text("Female"));
-        $(".table-responsive").shouldHave(text("8999123456"));
+        studentRegistrationForm.checkResult("Student Name", "Ksenia Mitrofanova")
+                .checkResult("Gender", "Female")
+                .checkResult("Mobile", "8999123456");
+
     }
 
- /*   @Test
+    @Test
     void negativeScenario()
     {
+        studentRegistrationForm.openPage()
+                .clickEnter();
 
-    }*/
+        $("firstName").shouldHave(cssClass("error"));
+    }
 }
