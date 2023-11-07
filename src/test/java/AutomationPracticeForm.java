@@ -14,7 +14,7 @@ public class AutomationPracticeForm {
         Configuration.browserSize = "1920x1080";
         Configuration.baseUrl = "https://demoqa.com";
         Configuration.pageLoadStrategy = "eager";
-        //Configuration.holdBrowserOpen = true;
+        Configuration.holdBrowserOpen = true;
         Configuration.timeout = 5000;
     }
 
@@ -31,8 +31,6 @@ public class AutomationPracticeForm {
         $("#userEmail").setValue("KMitrofanova@mail.ru");
         $("#userNumber").setValue("8999123456");
         $("#genterWrapper").$(byText("Female")).click();
-        //$("[for='gender-radio-2']").click();
-        //$("#subjectsContainer").setValue("Russia");
         $("#dateOfBirthInput").click();
         $(".react-datepicker__month-select").selectOption("June");
         $(".react-datepicker__year-select").selectOption("1997");
@@ -41,9 +39,6 @@ public class AutomationPracticeForm {
         $ ("#hobbiesWrapper").$(byText("Sports")).click();
         $ ("#hobbiesWrapper").$(byText("Reading")).click();
         $ ("#hobbiesWrapper").$(byText("Music")).click();
-        //$("[for='hobbies-checkbox-1']").click();
-        //$("[for='hobbies-checkbox-2']").click();
-        //$("[for='hobbies-checkbox-3']").click();
         $("#uploadPicture").uploadFromClasspath("QA.jpeg");
         $("#currentAddress").setValue("Penza, Central street 132");
         $("#react-select-3-input").val("NCR").pressEnter();
@@ -61,4 +56,23 @@ public class AutomationPracticeForm {
         $(".table-responsive").shouldHave(text("Penza, Central street 132"));
         $(".table-responsive").shouldHave(text("NCR Noida"));
     }
+
+    @Test
+    void inputMinimalData()
+    {
+        open("/automation-practice-form");
+        executeJavaScript("$('#fixedban').remove()");
+        executeJavaScript("$('footer').remove");
+        $("#firstName").setValue("Ksenia");
+        $("#lastName").setValue("Mitrofanova");
+        $("#genterWrapper").$(byText("Female")).click();
+        $("#userNumber").setValue("8999123456");
+        $("#submit").pressEnter();
+
+        $(".table-responsive").shouldHave(text("Ksenia Mitrofanova"));
+        $(".table-responsive").shouldHave(text("Female"));
+        $(".table-responsive").shouldHave(text("8999123456"));
+    }
+
+
 }
