@@ -42,6 +42,7 @@ public class AutomationPracticeForm extends TestBase{
     void inputMinimalData()
     {
         studentRegistrationPage.openPage()
+                .removePage()
                 .setFirstName("Ksenia")
                 .setLastName("Mitrofanova")
                 .setGender("Female")
@@ -58,6 +59,7 @@ public class AutomationPracticeForm extends TestBase{
     void negativeScenario()
     {
         studentRegistrationPage.openPage()
+                .removePage()
                 .clickEnter()
                 .checkResult();
 

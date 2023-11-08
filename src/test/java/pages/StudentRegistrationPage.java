@@ -40,7 +40,6 @@ public class StudentRegistrationPage {
 
     public StudentRegistrationPage openPage(){
         open("/automation-practice-form");
-        removePage();
         return this;
     }
     public StudentRegistrationPage setFirstName(String value) {
