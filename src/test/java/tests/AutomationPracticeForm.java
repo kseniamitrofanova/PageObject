@@ -7,7 +7,6 @@ public class AutomationPracticeForm extends TestBase{
     StudentRegistrationPage studentRegistrationPage = new StudentRegistrationPage();
 
     @Test
-
     void fillFormTest() {
         studentRegistrationPage.openPage()
                 .setFirstName("Ksenia")
