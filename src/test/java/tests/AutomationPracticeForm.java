@@ -9,6 +9,7 @@ public class AutomationPracticeForm extends TestBase{
     @Test
     void fillFormTest() {
         studentRegistrationPage.openPage()
+                .removePage()
                 .setFirstName("Ksenia")
                 .setLastName("Mitrofanova")
                 .setUserEmail("KMitrofanova@mail.ru")
