@@ -1,9 +1,7 @@
 package tests;
 
-import com.github.javafaker.Faker;
 import org.junit.jupiter.api.Test;
 import pages.StudentRegistrationPage;
-
 import static tests.TestData.*;
 
 public class AutomationPracticeFormWithFakerTests extends TestBase{
@@ -12,42 +10,35 @@ public class AutomationPracticeFormWithFakerTests extends TestBase{
 
     @Test
     void fillFormTest() {
-        Faker faker = new Faker();
-
-        String firstName=faker.name().firstName();
-        String lastName = faker.name().lastName();
-        String userEmail = faker.internet().emailAddress();
-        String currentAddress = faker.address().streetAddress();
 
         studentRegistrationPage.openPage()
                 .removePage()
                 .setFirstName(firstName)
                 .setLastName(lastName)
                 .setUserEmail(userEmail)
-                .setUserNumber("8999123456")
-                .setGender("Female")
-                .setDateOfBirth("30", "July", "2008")
-                .setHobbies("Sports")
-                .setHobbies("Reading")
-                .setHobbies("Music")
-                .setSubjectsInput("Computer Science")
+                .setUserNumber(userNumber)
+                .setGender(gender)
+                .setDateOfBirth(strDayOfBirth, monthOfBirth, strYearOfBirth)
+                .setHobbies(hobbies)
+                .setSubjectsInput(subjectsInput)
                 .setPicture()
                 .setCurrentAddress(currentAddress)
-                .setState("NCR")
-                .setCity("Noida")
+                .setState(state)
+                .setCity(city)
                 .clickEnter();
 
-
-        studentRegistrationPage.checkResult("Student Name", "Ksenia Mitrofanova")
+        studentRegistrationPage.checkResult("Student Name", firstName + "\n" + lastName)
                 .checkResult("Student Email", userEmail)
-                .checkResult("Gender", "Female")
-                .checkResult("Mobile", "8999123456")
-                .checkResult("Date of Birth", "30 July,2008")
-                .checkResult("Subjects", "Computer Science")
-                .checkResult("Hobbies","Sports, Reading, Music")
-                .checkResult("Picture","QA.jpeg")
+                .checkResult("Gender", gender)
+                .checkResult("Mobile", userNumber)
+                .checkResult("Date of Birth", strDayOfBirth + "\n" +
+                        monthOfBirth + "," +
+                        strYearOfBirth)
+                .checkResult("Subjects", subjectsInput)
+                .checkResult("Hobbies",hobbies)
+                .checkResult("Picture",nameForPicture)
                 .checkResult("Address",currentAddress)
-                .checkResult("State and City","NCR Noida");
+                .checkResult("State and City",state + "\n" + city);
     }
 
     @Test
@@ -57,13 +48,13 @@ public class AutomationPracticeFormWithFakerTests extends TestBase{
                 .removePage()
                 .setFirstName(firstName)
                 .setLastName(lastName)
-                .setGender("Female")
-                .setUserNumber("8999123456")
+                .setGender(gender)
+                .setUserNumber(userNumber)
                 .clickEnter();
 
-        studentRegistrationPage.checkResult("Student Name", "Ksenia Mitrofanova")
-                .checkResult("Gender", "Female")
-                .checkResult("Mobile", "8999123456");
+        studentRegistrationPage.checkResult("Student Name", firstName + "\n" + lastName)
+                .checkResult("Gender", gender)
+                .checkResult("Mobile", userNumber);
 
     }
 
