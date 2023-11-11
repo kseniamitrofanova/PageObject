@@ -1,9 +1,10 @@
 package tests;
+
+import com.github.javafaker.Faker;
 import org.junit.jupiter.api.Test;
 import pages.StudentRegistrationPage;
 
 import static tests.TestData.*;
-
 
 public class AutomationPracticeFormWithFakerTests extends TestBase{
 
@@ -11,6 +12,13 @@ public class AutomationPracticeFormWithFakerTests extends TestBase{
 
     @Test
     void fillFormTest() {
+        Faker faker = new Faker();
+
+        String firstName=faker.name().firstName();
+        String lastName = faker.name().lastName();
+        String userEmail = faker.internet().emailAddress();
+        String currentAddress = faker.address().streetAddress();
+
         studentRegistrationPage.openPage()
                 .removePage()
                 .setFirstName(firstName)
@@ -24,7 +32,7 @@ public class AutomationPracticeFormWithFakerTests extends TestBase{
                 .setHobbies("Music")
                 .setSubjectsInput("Computer Science")
                 .setPicture()
-                .setCurrentAddress("Penza, Central street 132")
+                .setCurrentAddress(currentAddress)
                 .setState("NCR")
                 .setCity("Noida")
                 .clickEnter();
@@ -38,7 +46,7 @@ public class AutomationPracticeFormWithFakerTests extends TestBase{
                 .checkResult("Subjects", "Computer Science")
                 .checkResult("Hobbies","Sports, Reading, Music")
                 .checkResult("Picture","QA.jpeg")
-                .checkResult("Address","Penza, Central street 132")
+                .checkResult("Address",currentAddress)
                 .checkResult("State and City","NCR Noida");
     }
 
