@@ -4,8 +4,8 @@ import pages.StudentRegistrationPage;
 
 import static tests.TestData.*;
 
-public class AutomationPracticeFormWithTestData extends TestBase{
 
+public class AutomationPracticeFormWithFakerTests extends TestBase{
 
     StudentRegistrationPage studentRegistrationPage = new StudentRegistrationPage();
 
