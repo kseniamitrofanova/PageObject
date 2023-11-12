@@ -2,43 +2,43 @@ package tests;
 
 import org.junit.jupiter.api.Test;
 import pages.StudentRegistrationPage;
-import static tests.TestData.*;
 
 public class AutomationPracticeFormWithFakerTests extends TestBase{
 
     StudentRegistrationPage studentRegistrationPage = new StudentRegistrationPage();
+    TestData testData = new TestData();
 
     @Test
     void fillFormTest() {
 
         studentRegistrationPage.openPage()
                 .removePage()
-                .setFirstName(firstName)
-                .setLastName(lastName)
-                .setUserEmail(userEmail)
-                .setUserNumber(userNumber)
-                .setGender(gender)
-                .setDateOfBirth(strDayOfBirth, monthOfBirth, strYearOfBirth)
-                .setHobbies(hobbies)
-                .setSubjectsInput(subjectsInput)
+                .setFirstName(testData.firstName)
+                .setLastName(testData.lastName)
+                .setUserEmail(testData.userEmail)
+                .setUserNumber(testData.userNumber)
+                .setGender(testData.gender)
+                .setDateOfBirth(testData.strDayOfBirth, testData.monthOfBirth, testData.strYearOfBirth)
+                .setHobbies(testData.hobbies)
+                .setSubjectsInput(testData.subjectsInput)
                 .setPicture()
-                .setCurrentAddress(currentAddress)
-                .setState(state)
-                .setCity(city)
+                .setCurrentAddress(testData.currentAddress)
+                .setState(testData.state)
+                .setCity(testData.city)
                 .clickEnter();
 
-        studentRegistrationPage.checkResult("Student Name", firstName + "\n" + lastName)
-                .checkResult("Student Email", userEmail)
-                .checkResult("Gender", gender)
-                .checkResult("Mobile", userNumber)
-                .checkResult("Date of Birth", strDayOfBirth + "\n" +
-                        monthOfBirth + "," +
-                        strYearOfBirth)
-                .checkResult("Subjects", subjectsInput)
-                .checkResult("Hobbies",hobbies)
-                .checkResult("Picture",nameForPicture)
-                .checkResult("Address",currentAddress)
-                .checkResult("State and City",state + "\n" + city);
+        studentRegistrationPage.checkResult("Student Name", testData.firstName + "\n" + testData.lastName)
+                .checkResult("Student Email", testData.userEmail)
+                .checkResult("Gender", testData.gender)
+                .checkResult("Mobile", testData.userNumber)
+                .checkResult("Date of Birth", testData.strDayOfBirth + "\n" +
+                        testData.monthOfBirth + "," +
+                        testData.strYearOfBirth)
+                .checkResult("Subjects", testData.subjectsInput)
+                .checkResult("Hobbies",testData.hobbies)
+                .checkResult("Picture",testData.nameForPicture)
+                .checkResult("Address",testData.currentAddress)
+                .checkResult("State and City",testData.state + "\n" + testData.city);
     }
 
     @Test
@@ -46,15 +46,15 @@ public class AutomationPracticeFormWithFakerTests extends TestBase{
     {
         studentRegistrationPage.openPage()
                 .removePage()
-                .setFirstName(firstName)
-                .setLastName(lastName)
-                .setGender(gender)
-                .setUserNumber(userNumber)
+                .setFirstName(testData.firstName)
+                .setLastName(testData.lastName)
+                .setGender(testData.gender)
+                .setUserNumber(testData.userNumber)
                 .clickEnter();
 
-        studentRegistrationPage.checkResult("Student Name", firstName + "\n" + lastName)
-                .checkResult("Gender", gender)
-                .checkResult("Mobile", userNumber);
+        studentRegistrationPage.checkResult("Student Name", testData.firstName + "\n" + testData.lastName)
+                .checkResult("Gender", testData.gender)
+                .checkResult("Mobile", testData.userNumber);
 
     }
 
