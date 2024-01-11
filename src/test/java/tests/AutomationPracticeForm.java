@@ -7,8 +7,8 @@ import pages.StudentRegistrationPage;
 
 import static com.codeborne.selenide.logevents.SelenideLogger.step;
 
-@Tag("examples")
 
+@Tag("examples")
 public class AutomationPracticeForm extends TestBase{
     @AfterEach
     void addAttachments() {
