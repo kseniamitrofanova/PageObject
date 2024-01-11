@@ -9,6 +9,7 @@ import static com.codeborne.selenide.logevents.SelenideLogger.step;
 
 
 @Tag("examples")
+
 public class AutomationPracticeForm extends TestBase{
     @AfterEach
     void addAttachments() {
@@ -19,9 +20,8 @@ public class AutomationPracticeForm extends TestBase{
 
     }
     StudentRegistrationPage studentRegistrationPage = new StudentRegistrationPage();
-
-    @Test
     @Tag("demoqa")
+    @Test
     void fillFormTest() {
         step("Form fill",()-> {
                     studentRegistrationPage.openPage()
