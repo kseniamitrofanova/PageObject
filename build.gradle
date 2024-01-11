@@ -25,3 +25,10 @@ tasks.withType(Test){
         }
     }
 }
+
+
+task examples_test(type: Test) {
+    useJUnitPlatform {
+        includeTags("examples")
+    }
+}

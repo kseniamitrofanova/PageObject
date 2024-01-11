@@ -1,6 +1,8 @@
 package tests;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import pages.StudentRegistrationPage;
+@Tag("examples")
 
 public class AutomationPracticeForm extends TestBase{
 
