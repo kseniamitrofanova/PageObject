@@ -1,4 +1,6 @@
 package tests;
+import helpers.Attach;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import pages.StudentRegistrationPage;
@@ -8,7 +10,14 @@ import static com.codeborne.selenide.logevents.SelenideLogger.step;
 @Tag("examples")
 
 public class AutomationPracticeForm extends TestBase{
+    @AfterEach
+    void addAttachments() {
+        Attach.screenshotAs("Last screenshot");
+        Attach.pageSource();
+        Attach.browserConsoleLogs();
+        Attach.addVideo();
 
+    }
     StudentRegistrationPage studentRegistrationPage = new StudentRegistrationPage();
 
     @Test
