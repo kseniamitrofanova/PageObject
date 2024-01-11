@@ -12,6 +12,7 @@ public class AutomationPracticeForm extends TestBase{
     StudentRegistrationPage studentRegistrationPage = new StudentRegistrationPage();
 
     @Test
+    @Tag("demoqa")
     void fillFormTest() {
         step("Form fill",()-> {
                     studentRegistrationPage.openPage()
