@@ -20,7 +20,6 @@ public class AutomationPracticeForm extends TestBase{
 
     }
     StudentRegistrationPage studentRegistrationPage = new StudentRegistrationPage();
-    @Tag("demoqa")
     @Test
     void fillFormTest() {
         step("Form fill",()-> {
@@ -78,7 +77,7 @@ public class AutomationPracticeForm extends TestBase{
         });
 
     }
-
+    @Tag("demoqa")
     @Test
     void negativeScenario()
     {
