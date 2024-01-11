@@ -18,6 +18,19 @@ public class AutomationPracticeForm extends TestBase{
 
     }
     StudentRegistrationPage studentRegistrationPage = new StudentRegistrationPage();
+
+    @Tag("demoqa")
+    @Test
+    void negativeScenario()
+    {
+        step("Open page",()-> {
+            studentRegistrationPage.openPage()
+                    .removePage()
+                    .clickEnter()
+                    .checkResult();
+        });
+
+    }
     @Test
     void fillFormTest() {
         step("Form fill",()-> {
@@ -55,6 +68,7 @@ public class AutomationPracticeForm extends TestBase{
 
     }
 
+
     @Test
     void inputMinimalData()
     {
@@ -75,16 +89,5 @@ public class AutomationPracticeForm extends TestBase{
         });
 
     }
-    @Tag("demoqa")
-    @Test
-    void negativeScenario()
-    {
-        step("Open page",()-> {
-            studentRegistrationPage.openPage()
-                    .removePage()
-                    .clickEnter()
-                    .checkResult();
-        });
 
-    }
 }
