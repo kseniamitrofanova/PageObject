@@ -1,0 +1,9 @@
+6853329686:AAGbu-Kubv4t_sbY9bd07Hmc-3qi8yPPOMQ
+
+https://api.telegram.org/bot6853329685:AAGbu-Kubv4t_sbY9bd07Hmc-3qi8yPPOMQ/getUpdates
+
+-1002144352549
+
+curl -X POST -H 'Content-Type: application/json' -d '{"chat_id": "-1002144352549", "text": "This is a test from chat", "disable_notification": true}' https://api.telegram.org/bot6853329685:AAGbu-Kubv4t_sbY9bd07Hmc-3qi8yPPOMQ/sendMessage
+
+java "-DconfigFile=notifications/confic.json" -jar notifications/allure-notifications-4.6.1.jar
