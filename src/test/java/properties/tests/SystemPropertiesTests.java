@@ -2,6 +2,9 @@ package properties.tests;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+import org.openqa.selenium.devtools.v117.headlessexperimental.model.ScreenshotParams;
+
+import static java.lang.String.format;
 
 public class SystemPropertiesTests {
     @Test
@@ -35,6 +38,15 @@ public class SystemPropertiesTests {
     void systemProperties4Test(){
         String browser = System.getProperty("browser","mozilla");
         System.out.println(browser);
+
+    }
+
+    @Test
+    @Tag("hello")
+    void systemProperties5Test(){
+        String name = System.getProperty("name","default student");
+        String message = format("Hello, %si",name);
+        System.out.println(message);
 
     }
 }
