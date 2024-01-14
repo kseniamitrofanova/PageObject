@@ -33,6 +33,7 @@ dependencies {
 
 tasks.withType(Test){
     useJUnitPlatform()
+    systemProperties(System.getProperties());
 
     testLogging {
         lifecycle{
@@ -52,5 +53,11 @@ task fill_test(type: Test) {
 task negative_test(type: Test) {
     useJUnitPlatform {
         includeTags("negative")
+    }
+}
+
+task property_test(type: Test) {
+    useJUnitPlatform {
+        includeTags("property")
     }
 }
