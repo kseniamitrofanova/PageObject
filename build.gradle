@@ -43,14 +43,14 @@ tasks.withType(Test){
 }
 
 
-task examples_test(type: Test) {
+task fill_test(type: Test) {
     useJUnitPlatform {
-        includeTags("examples")
+        includeTags("fill")
     }
 }
 
-task demoqa_test(type: Test) {
+task negative_test(type: Test) {
     useJUnitPlatform {
-        includeTags("demoqa")
+        includeTags("negative")
     }
 }
