@@ -3,8 +3,7 @@ package tests;
 import org.junit.jupiter.api.Test;
 import pages.StudentRegistrationPage;
 
-import static com.codeborne.selenide.logevents.SelenideLogger.step;
-
+import static io.qameta.allure.Allure.step;
 public class AutomationPracticeFormWithFakerTests extends TestBase{
 
     StudentRegistrationPage studentRegistrationPage = new StudentRegistrationPage();

@@ -2,7 +2,6 @@ package properties.tests;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
-import org.openqa.selenium.devtools.v117.headlessexperimental.model.ScreenshotParams;
 
 import static java.lang.String.format;
 
