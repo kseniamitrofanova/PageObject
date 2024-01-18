@@ -8,14 +8,6 @@ import pages.StudentRegistrationPage;
 import static io.qameta.allure.Allure.step;
 
 public class AutomationPracticeForm extends TestBase{
-    @AfterEach
-    void addAttachments() {
-        Attach.screenshotAs("Last screenshot");
-        Attach.pageSource();
-        Attach.browserConsoleLogs();
-        Attach.addVideo();
-
-    }
     StudentRegistrationPage studentRegistrationPage = new StudentRegistrationPage();
 
     @Tag("negative")
