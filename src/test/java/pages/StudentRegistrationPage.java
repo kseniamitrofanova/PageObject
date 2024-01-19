@@ -15,7 +15,7 @@ public class StudentRegistrationPage {
             userNumberInput =$("#userNumber"),
             genderWrapperInput = $("#genterWrapper"),
             calendarInput = $("#dateOfBirthInput"),
-            buttonSubmit= $("#submit"),
+            buttonSubmit= $("#submit.btn.btn-primary"),
             hobbiesWrapperInput = $("#hobbiesWrapper"),
             subjectsInput= $("#subjectsInput"),
             loadPicture=$("#uploadPicture"),
