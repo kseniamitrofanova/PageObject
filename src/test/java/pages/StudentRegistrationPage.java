@@ -33,7 +33,7 @@ public class StudentRegistrationPage {
 
     public StudentRegistrationPage removePage() {
         executeJavaScript("$('#fixedban').remove()");
-        executeJavaScript("$('footer').remove");
+        executeJavaScript("$('footer').remove()");
         return this;
     }
 
